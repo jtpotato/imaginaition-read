@@ -1,0 +1,19 @@
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-black;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+p, ul {
+    margin-top: 0.2em;
+}
+img {
+    display: none;
+}
