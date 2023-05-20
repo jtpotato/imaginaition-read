@@ -9,17 +9,27 @@
 	marked.use({ gfm: true, mangle: false, headerPrefix: '', headerIds: false });
 
 	let cutInputText = '';
-
 	let displayText = '';
+	/**
+	 * @type {HTMLDivElement}
+	 */
+	let displayDiv;
 
 	/**
 	 * @type {HTMLDivElement}
 	 */
 	let cursor;
 
+	let warnUserAboutXSS = false;
+
 	onMount(() => {
-		cursor.style.height = 16 + 'px';
-		cursor.style.width = 16/2 + 'px';
+		cursor.style.height = 12 + 'px';
+		cursor.style.width = 12 / 2 + 'px';
+
+		// @ts-ignore
+		if (!displayDiv.setHTML) {
+			warnUserAboutXSS = true;
+		}
 
 		let frameLoopID = setInterval(() => {
 			// Chunk the text
@@ -31,28 +41,54 @@
 
 				displayText = marked.parse(cutInputText + '<span id="cursor-target"></span>');
 
+				// @ts-ignore
+				if (!displayDiv.setHTML) {
+					displayDiv.innerHTML = displayText;
+				}
+				else {
+					// @ts-ignore
+					displayDiv.setHTML(displayText);
+				}
+
 				setTimeout(() => {
 					// Update cursor
 					let target = document.getElementById('cursor-target');
-					cursor.style.top = target?.offsetTop + 'px';
-					cursor.style.left = target?.offsetLeft + 'px';
-					let height = target?.offsetHeight ? target?.offsetHeight : 16;
-					cursor.style.height = height + 'px';
-					cursor.style.width = height/2 + 'px';
+					if (target?.offsetHeight && target.offsetTop) {
+						cursor.style.top = target?.offsetTop + 'px';
+						cursor.style.left = target?.offsetLeft + 'px';
+						let height = target?.offsetHeight;
+						cursor.style.height = height + 'px';
+						cursor.style.width = height / 2 + 'px';
+					}
 				}, 1);
 			}
 		}, 50);
 
 		return () => {
-			displayText = ""
+			displayText = '';
 			clearInterval(frameLoopID);
 		};
 	});
 </script>
 
+<!--TODO!!!!!!! SANITISE THIS-->
+<div class="font-sans text-sm text-white/50" hidden={!warnUserAboutXSS}>
+	<p class="m-0">
+		Your browser does not support the Sanitizer() object and could be vulnerable to
+		cross-site-scripting. Use this site at your own risk ⚠️
+	</p>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer#browser_compatibility"
+		target="_blank"
+		style="text-decoration: none;"
+	>
+		<p class="underline text-white/50">
+			https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer#browser_compatibility
+		</p>
+	</a>
+</div>
 <div class="bg-neutral-800 p-4 rounded-lg">
-	<!--TODO!!!!!!! SANITISE THIS-->
-	<div class="text-white font-sans">{@html displayText}</div>
+	<div class="text-white font-sans" bind:this={displayDiv} />
 	<div class="cursor bg-white absolute transition-all duration-75" bind:this={cursor} />
 </div>
 
@@ -70,6 +106,6 @@
 	}
 	.cursor {
 		animation: blink 1s infinite;
-		box-shadow: 0 0 20px 10px #FF43F1;
+		box-shadow: 0 0 20px 10px #ff43f1;
 	}
 </style>

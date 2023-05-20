@@ -17,12 +17,13 @@
 			placeholder="Your notes go here..."
 			class="outline-none border-none bg-neutral-800 resize-none rounded-xl h-24 p-4 text-white"
 		/>
-        <a href="https://www.buymeacoffee.com/jtpotato" style={"text-decoration: none;"} target="_blank">
-            <div class="font-sans text-black bg-white p-2 rounded-lg text-sm flex flex-row space-x-2">
-                <img src="https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-1.svg" alt="Buymeacoffee logo" class="w-8">
-                <p class="m-0 p-0">Thank you for using this website! Consider supporting me :)</p>
-            </div>
-        </a>
+        <div class="font-sans w-72 flex flex-col space-y-4">
+            <a href="https://www.buymeacoffee.com/jtpotato" target="_blank" style="text-decoration: none;">
+                    <p class="m-0 p-0 text-xs text-white/50 underline">{"Consider donating 😊"}</p>
+            </a>
+            <p class="text-white/50 text-xs">If you can't donate, consider disabling your content-blocker on this site! Analytics are important to us 📈 and we promise we won't sell them to anyone else. 🙏</p>
+        </div>
+
 	</div>
 
 	<div class="ml-8 w-full">
