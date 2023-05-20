@@ -12,6 +12,7 @@
 	on:input={(event) => {
 		inputText = event.currentTarget.value;
 	}}
+    placeholder="Your notes go here..."
 />
 
 <Renderer text={inputText}></Renderer>
