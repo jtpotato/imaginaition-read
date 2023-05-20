@@ -21,7 +21,7 @@
             <a href="https://www.buymeacoffee.com/jtpotato" target="_blank" style="text-decoration: none;">
                     <p class="m-0 p-0 text-xs text-white/50 underline">{"Consider donating 😊"}</p>
             </a>
-            <p class="text-white/50 text-xs">If you can't donate, consider disabling your content-blocker on this site! Analytics are important to us 📈 and we promise we won't sell them to anyone else. 🙏</p>
+            <p class="text-white/50 text-xs">If you can't donate, consider disabling your content-blocker on this site! Analytics are important to us 📈 and we promise we won't sell that data to anyone else. 🙏</p>
         </div>
 
 	</div>
