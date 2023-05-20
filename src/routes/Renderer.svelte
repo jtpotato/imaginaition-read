@@ -44,6 +44,7 @@
 		}, 50);
 
 		return () => {
+			displayText = ""
 			clearInterval(frameLoopID);
 		};
 	});
