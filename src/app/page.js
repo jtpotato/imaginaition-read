@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Renderer from "./renderer";
-import DonateText from "./donateText";
+import Renderer from "../components/renderer/renderer";
+import DonateText from "../components/donate/donateText";
 
 const Read = () => {
   const [inputText, setInputText] = useState("");

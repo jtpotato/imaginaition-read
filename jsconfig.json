@@ -1,9 +1,9 @@
 {
-    "compilerOptions": {
-        "jsx": "react",
-        "checkJs": true,
-      "plugins": [{ "name": "next" }]
+  "compilerOptions": {
+    "jsx": "react",
+    "paths": {
+      "@/*": ["./src/*"]
     },
-    "include": ["**/*.js", "**/*.jsx"],
-    "exclude": ["node_modules"]
-  }
+    "checkJs": true
+  },
+}
