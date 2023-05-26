@@ -1,8 +1,7 @@
 "use client";
 
 import ReactMarkdown from "react-markdown";
-import "./renderer.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import completeText from "./completeText";
 import React from "react";
 

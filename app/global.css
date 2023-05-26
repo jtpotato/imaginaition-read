@@ -1,0 +1,22 @@
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-neutral-950
+}
+
+h1 {
+    @apply mt-0
+}
+
+.foreground {
+    @apply bg-neutral-800
+}
+
+.slider {
+    @apply foreground appearance-none rounded-full h-2
+}
+
+.slider::-webkit-slider-thumb {
+    @apply bg-neutral-700 shadow-sm shadow-black appearance-none h-4 w-4 rounded-full;
+}

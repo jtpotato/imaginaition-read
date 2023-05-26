@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Renderer from "./renderer";
 import DonateText from "./donateText";
 
-const Home = () => {
+const Read = () => {
   const [inputText, setInputText] = useState("");
   const [speed, setSpeed] = useState(8);
 
@@ -22,16 +22,16 @@ const Home = () => {
         <textarea
           onInput={handleInputChange}
           placeholder="Your notes go here..."
-          className="outline-none border-none bg-neutral-800 resize-none rounded-xl h-24 p-4 text-white"
+          className="foreground outline-none border-none resize-none rounded-xl h-24 p-4 text-white"
         />
-        <input type="range" min={1} max={200} onInput={handleSpeedChange} />
+        <input type="range" min={1} max={200} onInput={handleSpeedChange} className="slider" />
         <DonateText />
       </div>
-      <div className="ml-8 w-full">
+      <div className="foreground ml-8 w-full text-white font-sans rounded-xl p-4">
         <Renderer text={inputText} speed={speed} />
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Read;

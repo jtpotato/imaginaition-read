@@ -1,6 +1,3 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    basePath: "/learn"
+module.exports = {
+    reactStrictMode: false,
 }
-
-module.exports = nextConfig
